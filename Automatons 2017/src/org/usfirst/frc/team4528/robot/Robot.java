@@ -149,7 +149,7 @@ public class Robot extends SampleRobot {
     	   else{
       	       leftDrive = stick.getRawAxis(1) ;
                rightDrive = stick.getRawAxis(5);
-               smashDrive(-leftDrive * 1.5, -rightDrive * 1.5);
+               smashDrive(-leftDrive * 0.5, -rightDrive * 0.5);
         }     
        }
        public void gearBox(){
@@ -198,12 +198,10 @@ public class Robot extends SampleRobot {
     	  OptimusPrime.tankDrive(left, right);
        }
        public void adjustedDrive(double left, double right){
-    	   while(isAutonomous() && isEnabled()){
     		   if(vexSensorBackLeft.getRangeInches() - vexSensorBackRight.getRangeInches() >= 2){
     			   smashDrive(left,right*1.2);
     		   }
     		   smashDrive(left,right*1.1);
-    	   }
        }
 }
 
